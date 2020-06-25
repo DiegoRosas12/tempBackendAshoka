@@ -1,5 +1,5 @@
-const db = require('./config');
-const Admin = db.Admin;
+const db = require("../config/sequelize.config");
+const Admin = db.admins;
 
 exports.create = (req, res) => {
     const admin = {

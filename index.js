@@ -14,14 +14,15 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // 
-const db = require("./app/models");
-db.sequelize.sync();
+const db = require("./app/config/sequelize.config");
 
+db.sequelize.sync()
 
+app.get('/', (req, res)=> {
+    res.json({message: "Home"})
+});
 
-app.get('/', function(req, res){
-    res.send("Home")
-})
+require('./app/routes/router.js')(app);
 
 const PORT = process.env.PORT || 3000
 
