@@ -13,7 +13,11 @@ module.exports = (sequelize, type) => {
         password: {
             type: type.STRING,
             allowNull: false
-        }
+        },
+        
+    },
+    {
+        timestamps: false
     })
 
     return Admin;
