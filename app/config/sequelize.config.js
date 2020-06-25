@@ -18,8 +18,8 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-
-db.admins = require('../models/model.js')(sequelize, Sequelize);
+    
+db.employees = require('../models/model.js')(sequelize, Sequelize);
 
 module.exports = db;
 

@@ -1,5 +1,5 @@
 module.exports = (sequelize, type) => {
-    const Admin = sequelize.define('Admins', {
+    const Employee = sequelize.define('Employees', {
         _id: {
             primaryKey: true,
             autoIncrement: true,
@@ -14,11 +14,16 @@ module.exports = (sequelize, type) => {
             type: type.STRING,
             allowNull: false
         },
+        role: {
+            type: type.ENUM('admin', 'employee'),
+            values: ['admin', 'employee'],
+            allowNull: false
+        }
         
     },
     {
         timestamps: false
     })
 
-    return Admin;
+    return Employee;
 }

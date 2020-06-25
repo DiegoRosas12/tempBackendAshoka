@@ -16,7 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // 
 const db = require("./app/config/sequelize.config");
 
-db.sequelize.sync()
+db.sequelize.sync({force: true})
+    .then(() => {
+        console.log("Drop and re-sync db...")
+    });
 
 app.get('/', (req, res)=> {
     res.json({message: "Home"})

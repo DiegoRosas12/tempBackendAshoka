@@ -1,13 +1,14 @@
 const db = require("../config/sequelize.config");
-const Admin = db.admins;
+const Employee = db.employees;
 
 exports.create = (req, res) => {
     const admin = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        role: req.body.role
     };
 
-    Admin.create(admin)
+    Employee.create(admin)
         .then(data => {
             res.send(data)
         })
@@ -20,7 +21,7 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-    Admin.findAll()
+    Employee.findAll()
         .then(data => {
             res.send(data)
         })
@@ -34,7 +35,7 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
     const _id = req.params._id;
-    Admin.findOne({
+    Employee.findOne({
         where: {
             _id: _id
         }
