@@ -23,6 +23,7 @@ app.get('/', (req, res)=> {
 });
 
 require('./app/routes/router.js')(app);
+require('./app/auth/auth.js')(app);
 
 const PORT = process.env.PORT || 3000
 
